@@ -12,8 +12,13 @@ if [ ${#d1} -ne ${#d2} ]
 then
   echo -1
 else
-  for i in {1..4}
+  for (( i = 0; i < ${#d1}; i++ ))
   do
-    echo $i
+    if [ ${d1:i:1} != ${d2:i:1} ]
+    then
+      n=$((n+1))
+    fi
   done
+
+  echo $n
 fi
